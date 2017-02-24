@@ -8,10 +8,10 @@ WORKDIR /root
 RUN apt-get update && apt-get install -y openssh-server openjdk-7-jdk wget
 
 # install compiled hadoop
-COPY hadoop-compiled.tar.gz ~/hadoop-compiled.tar.gz
-RUN tar -xzvf hadoop-compiled.tar.gz
-RUN mv hadoop-compiled /usr/local/hadoop
-RUN rm hadoop-compiled.tar.gz
+COPY hadoop-2.7.3.tar.gz hadoop-2.7.3.tar.gz
+RUN tar -xzvf hadoop-2.7.3.tar.gz && \
+		mv hadoop-2.7.3 /usr/local/hadoop && \
+		rm hadoop-2.7.3.tar.gz
 
 # set environment variable
 ENV JAVA_HOME=/usr/lib/jvm/java-7-openjdk-amd64 
